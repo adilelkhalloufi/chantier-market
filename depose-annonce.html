@@ -1,0 +1,1173 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>chantiermarket.ma - Deposer une annonce</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                50: "#fff8e6",
+                100: "#fceec4",
+                200: "#f7dc87",
+                300: "#f2ca4b",
+                400: "#e8b21c",
+                500: "#c9930a",
+                600: "#a37809",
+                700: "#7a5a08",
+                800: "#533e06",
+                900: "#322503",
+              },
+            },
+            boxShadow: {
+              soft: "0 10px 30px rgba(0,0,0,0.12)",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background:
+          radial-gradient(
+            1000px 450px at 10% -15%,
+            #f6e3a2 0%,
+            transparent 60%
+          ),
+          radial-gradient(900px 450px at 90% -25%, #d9e6ee 0%, transparent 60%),
+          #f8fafc;
+      }
+      .glass {
+        backdrop-filter: blur(8px);
+        background: rgba(255, 255, 255, 0.9);
+      }
+      .form-bg {
+        background: linear-gradient(
+          160deg,
+          #ffffff 0%,
+          #f8fafc 45%,
+          #ecfeff 120%
+        );
+      }
+    </style>
+  </head>
+  <body class="text-slate-900">
+    <header class="sticky top-0 z-30 border-b border-slate-200/60 glass">
+      <div
+        class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8"
+      >
+        <a
+          href="btp.html"
+          class="flex items-center gap-2 text-xl font-extrabold tracking-tight"
+        >
+          <span
+            class="inline-flex h-8 w-8 items-center justify-center rounded bg-brand-400 text-black"
+            >C</span
+          >
+          <span>chantiermarket.ma</span>
+        </a>
+        <div class="flex items-center gap-3">
+          <a
+            href="dashboard-client.html"
+            class="rounded-full border border-slate-300 px-4 py-2 text-sm font-semibold hover:border-slate-400"
+            >Mon profil</a
+          >
+          <a
+            href="login-register.html"
+            class="rounded-full border border-slate-300 px-4 py-2 text-sm font-semibold hover:border-slate-400"
+            >Connexion</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <main class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+      <section
+        class="mb-6 rounded-3xl bg-slate-950 p-6 text-white shadow-soft sm:p-8"
+      >
+        <p
+          class="text-xs font-semibold uppercase tracking-widest text-brand-300"
+        >
+          Deposer une annonce
+        </p>
+        <h1 class="mt-2 text-3xl font-black">Creer un produit / une annonce</h1>
+        <p class="mt-2 text-sm text-slate-300">
+          Remplissez les informations du materiel puis publiez votre annonce.
+        </p>
+      </section>
+
+      <section
+        class="form-bg rounded-2xl border border-slate-200 p-5 shadow-soft sm:p-6"
+      >
+        <form id="createProductForm" class="space-y-5">
+          <div class="grid gap-2 sm:grid-cols-3">
+            <div
+              id="stepBadge1"
+              class="rounded-xl border border-brand-500 bg-brand-50 px-3 py-2 text-sm font-bold text-brand-800"
+            >
+              1. Choisir categorie
+            </div>
+            <div
+              id="stepBadge2"
+              class="rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm font-semibold text-slate-500"
+            >
+              2. Choisir sous categorie
+            </div>
+            <div
+              id="stepBadge3"
+              class="rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm font-semibold text-slate-500"
+            >
+              3. Creer materiel
+            </div>
+          </div>
+
+          <div
+            id="step1"
+            class="space-y-4 rounded-2xl border border-slate-200 bg-white/90 p-4"
+          >
+            <h2 class="text-lg font-extrabold">Etape 1: Categorie</h2>
+            <input id="category" type="text" class="sr-only" required />
+            <p class="text-sm text-slate-600">
+              Choisissez une categorie en cliquant sur une carte.
+            </p>
+            <div
+              id="categoryGrid"
+              class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4"
+            >
+              <button
+                type="button"
+                class="category-card rounded-xl border border-slate-300 bg-white p-3 text-left transition hover:-translate-y-0.5 hover:border-brand-500"
+                data-category="Materiels TP"
+              >
+                <img
+                  src="svg/svg_00005.svg"
+                  alt="Materiels TP"
+                  class="h-16 w-full rounded bg-slate-50 object-contain p-2"
+                />
+                <p class="mt-2 text-sm font-bold">Materiels TP</p>
+              </button>
+              <button
+                type="button"
+                class="category-card rounded-xl border border-slate-300 bg-white p-3 text-left transition hover:-translate-y-0.5 hover:border-brand-500"
+                data-category="Manutention"
+              >
+                <img
+                  src="svg/svg_00006.svg"
+                  alt="Manutention"
+                  class="h-16 w-full rounded bg-slate-50 object-contain p-2"
+                />
+                <p class="mt-2 text-sm font-bold">Manutention</p>
+              </button>
+              <button
+                type="button"
+                class="category-card rounded-xl border border-slate-300 bg-white p-3 text-left transition hover:-translate-y-0.5 hover:border-brand-500"
+                data-category="Poids Lourds"
+              >
+                <img
+                  src="svg/svg_00010.svg"
+                  alt="Poids Lourds"
+                  class="h-16 w-full rounded bg-slate-50 object-contain p-2"
+                />
+                <p class="mt-2 text-sm font-bold">Poids Lourds</p>
+              </button>
+              <button
+                type="button"
+                class="category-card rounded-xl border border-slate-300 bg-white p-3 text-left transition hover:-translate-y-0.5 hover:border-brand-500"
+                data-category="Agricole"
+              >
+                <img
+                  src="svg/svg_00014.svg"
+                  alt="Agricole"
+                  class="h-16 w-full rounded bg-slate-50 object-contain p-2"
+                />
+                <p class="mt-2 text-sm font-bold">Agricole</p>
+              </button>
+            </div>
+            <div class="flex flex-wrap gap-3">
+              <button
+                id="toStep2"
+                type="button"
+                class="rounded-lg bg-brand-400 px-5 py-3 text-sm font-bold text-black hover:bg-brand-300"
+              >
+                Continuer
+              </button>
+              <a
+                href="dashboard-client.html"
+                class="rounded-lg border border-slate-300 px-5 py-3 text-sm font-semibold hover:border-slate-400"
+              >
+                Retour dashboard
+              </a>
+            </div>
+          </div>
+
+          <div
+            id="step2"
+            class="hidden space-y-4 rounded-2xl border border-slate-200 bg-white/90 p-4"
+          >
+            <h2 class="text-lg font-extrabold">Etape 2: Sous categorie</h2>
+            <input id="subcategory" type="text" class="sr-only" required />
+            <p class="text-sm text-slate-600">
+              Selectionnez une sous categorie selon la categorie choisie.
+            </p>
+            <div
+              id="subcategoryGrid"
+              class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4"
+            ></div>
+            <div class="flex flex-wrap gap-3">
+              <button
+                id="backToStep1"
+                type="button"
+                class="rounded-lg border border-slate-300 px-5 py-3 text-sm font-semibold hover:border-slate-400"
+              >
+                Retour
+              </button>
+              <button
+                id="toStep3"
+                type="button"
+                class="rounded-lg bg-brand-400 px-5 py-3 text-sm font-bold text-black hover:bg-brand-300"
+              >
+                Continuer
+              </button>
+            </div>
+          </div>
+
+          <div
+            id="step3"
+            class="hidden space-y-5 rounded-2xl border border-slate-200 bg-white/90 p-4"
+          >
+            <h2 class="text-lg font-extrabold">
+              Etape 3: Informations materiel
+            </h2>
+            <div
+              class="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-amber-300 bg-amber-50 px-4 py-3"
+            >
+              <p class="text-sm font-semibold text-amber-900">
+                Modifier le produit - En attente de validation
+              </p>
+              <p class="text-xs text-slate-600">
+                Categorie:
+                <span id="selectedCategoryLabel" class="font-bold">-</span>
+                | Sous categorie:
+                <span id="selectedSubcategoryLabel" class="font-bold">-</span>
+              </p>
+            </div>
+
+            <div class="space-y-3" id="accordionRoot">
+              <article
+                class="overflow-hidden rounded-xl border border-slate-200 bg-white"
+              >
+                <button
+                  type="button"
+                  class="accordion-btn flex w-full items-center justify-between px-4 py-3 text-left"
+                  data-acc-target="acc-main"
+                >
+                  <span class="font-bold">Informations principales</span>
+                  <span class="acc-icon text-lg">+</span>
+                </button>
+                <div
+                  id="acc-main"
+                  class="accordion-panel border-t border-slate-200 px-4 py-4"
+                >
+                  <div class="grid gap-4 sm:grid-cols-2">
+                    <div>
+                      <label
+                        for="title"
+                        class="mb-1 block text-sm font-semibold"
+                        >Titre *</label
+                      >
+                      <input
+                        id="title"
+                        type="text"
+                        placeholder="Ex: Tractopelle JCB 3CX annee 2019"
+                        required
+                        class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none ring-brand-300 focus:ring"
+                      />
+                    </div>
+                    <div>
+                      <label class="mb-1 block text-sm font-semibold"
+                        >Vente / Location</label
+                      >
+                      <div
+                        class="flex flex-wrap gap-4 rounded-lg border border-slate-300 px-3 py-2 text-sm"
+                      >
+                        <label class="flex items-center gap-2">
+                          <input
+                            type="radio"
+                            name="transactionType"
+                            value="vente"
+                            checked
+                          />
+                          Vente
+                        </label>
+                        <label class="flex items-center gap-2">
+                          <input
+                            type="radio"
+                            name="transactionType"
+                            value="location"
+                          />
+                          Location
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div id="saleFields" class="mt-4 grid gap-4 sm:grid-cols-2">
+                    <div>
+                      <label
+                        for="salePrice"
+                        class="mb-1 block text-sm font-semibold"
+                        >Prix de vente (MAD)</label
+                      >
+                      <input
+                        id="salePrice"
+                        type="number"
+                        min="0"
+                        placeholder="590000"
+                        class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none ring-brand-300 focus:ring"
+                      />
+                    </div>
+                  </div>
+
+                  <div
+                    id="rentalFields"
+                    class="mt-4 hidden grid gap-4 sm:grid-cols-2"
+                  >
+                    <div>
+                      <label
+                        for="rentPrice"
+                        class="mb-1 block text-sm font-semibold"
+                        >Prix de location (MAD)</label
+                      >
+                      <input
+                        id="rentPrice"
+                        type="number"
+                        min="0"
+                        placeholder="1800"
+                        class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none ring-brand-300 focus:ring"
+                      />
+                    </div>
+                    <div>
+                      <label
+                        for="rentDuration"
+                        class="mb-1 block text-sm font-semibold"
+                        >Duree de location</label
+                      >
+                      <select
+                        id="rentDuration"
+                        class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none ring-brand-300 focus:ring"
+                      >
+                        <option value="">Select la Duree de location</option>
+                        <option>Par heure</option>
+                        <option>Par jour</option>
+                        <option>Par semaine</option>
+                        <option>Par mois</option>
+                      </select>
+                    </div>
+                    <div class="sm:col-span-2">
+                      <label class="mb-1 block text-sm font-semibold"
+                        >Avec chauffeur</label
+                      >
+                      <div
+                        class="flex gap-4 rounded-lg border border-slate-300 px-3 py-2 text-sm"
+                      >
+                        <label class="flex items-center gap-2">
+                          <input type="radio" name="withDriver" value="oui" />
+                          Oui
+                        </label>
+                        <label class="flex items-center gap-2">
+                          <input
+                            type="radio"
+                            name="withDriver"
+                            value="non"
+                            checked
+                          />
+                          Non
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                    <div>
+                      <label
+                        for="region"
+                        class="mb-1 block text-sm font-semibold"
+                        >Region</label
+                      >
+                      <select
+                        id="region"
+                        class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none ring-brand-300 focus:ring"
+                      >
+                        <option value="">Selectionner une region</option>
+                        <option>Beni Mellal-Khenifra</option>
+                        <option>Casablanca-Settat</option>
+                        <option>Dakhla-Oued Eddahab</option>
+                        <option>Draa-Tafilalet</option>
+                        <option>Fes-Meknes</option>
+                        <option>Guelmim-Oued Noun</option>
+                        <option>L'Oriental</option>
+                        <option>Laayoune-Sakia Al Hamra</option>
+                        <option>Marrakech-Safi</option>
+                        <option>Rabat-Sale-Kenitra</option>
+                        <option>Souss-Massa</option>
+                        <option>Tanger-Tetouan-Al Hoceima</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label for="city" class="mb-1 block text-sm font-semibold"
+                        >Ville *</label
+                      >
+                      <input
+                        id="city"
+                        type="text"
+                        placeholder="Selectionner une ville"
+                        required
+                        class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none ring-brand-300 focus:ring"
+                      />
+                    </div>
+                    <div>
+                      <label
+                        for="phone"
+                        class="mb-1 block text-sm font-semibold"
+                        >Numero de telephone *</label
+                      >
+                      <div class="flex rounded-lg border border-slate-300">
+                        <span
+                          class="inline-flex items-center border-r border-slate-300 px-3 text-sm text-slate-600"
+                          >+212</span
+                        >
+                        <input
+                          id="phone"
+                          type="tel"
+                          required
+                          class="w-full px-3 py-2 text-sm outline-none"
+                          placeholder="6 00 00 00 00"
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <label
+                        for="whatsapp"
+                        class="mb-1 block text-sm font-semibold"
+                        >Whatsapp</label
+                      >
+                      <div class="flex rounded-lg border border-slate-300">
+                        <span
+                          class="inline-flex items-center border-r border-slate-300 px-3 text-sm text-slate-600"
+                          >+212</span
+                        >
+                        <input
+                          id="whatsapp"
+                          type="tel"
+                          class="w-full px-3 py-2 text-sm outline-none"
+                          placeholder="6 00 00 00 00"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <article
+                class="overflow-hidden rounded-xl border border-slate-200 bg-white"
+              >
+                <button
+                  type="button"
+                  class="accordion-btn flex w-full items-center justify-between px-4 py-3 text-left"
+                  data-acc-target="acc-vehicule"
+                >
+                  <span class="font-bold">Donnees du vehicule</span>
+                  <span class="acc-icon text-lg">+</span>
+                </button>
+                <div
+                  id="acc-vehicule"
+                  class="accordion-panel hidden border-t border-slate-200 px-4 py-4"
+                >
+                  <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                    <div>
+                      <label
+                        for="brand"
+                        class="mb-1 block text-sm font-semibold"
+                        >Constructeur</label
+                      >
+                      <select
+                        id="brand"
+                        required
+                        class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none ring-brand-300 focus:ring"
+                      >
+                        <option value="">Select constructeur</option>
+                        <option>Caterpillar</option>
+                        <option>JCB</option>
+                        <option>Case</option>
+                        <option>Poclain</option>
+                        <option>Doosan</option>
+                        <option>Volvo</option>
+                        <option>Liebherr</option>
+                        <option>Bobcat</option>
+                        <option>Hitachi</option>
+                        <option>Komatsu</option>
+                        <option>DAF</option>
+                        <option>Isuzu</option>
+                        <option>Iveco</option>
+                        <option>Scania</option>
+                        <option>Mercedes</option>
+                        <option>Manitou</option>
+                        <option>New Holland</option>
+                        <option>John Deere</option>
+                        <option>Hyundai</option>
+                        <option>Kobelco</option>
+                        <option>Yanmar</option>
+                        <option>Terex</option>
+                        <option>Toyota</option>
+                        <option>Autres</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label
+                        for="model"
+                        class="mb-1 block text-sm font-semibold"
+                        >Modele</label
+                      >
+                      <input
+                        id="model"
+                        type="text"
+                        placeholder="D8R"
+                        required
+                        class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none ring-brand-300 focus:ring"
+                      />
+                    </div>
+                    <div>
+                      <label
+                        for="yearBuilt"
+                        class="mb-1 block text-sm font-semibold"
+                        >Annee de construction</label
+                      >
+                      <select
+                        id="yearBuilt"
+                        class="year-select w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none ring-brand-300 focus:ring"
+                      >
+                        <option value="">Annee</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label
+                        for="customsYear"
+                        class="mb-1 block text-sm font-semibold"
+                        >Date dedouanement</label
+                      >
+                      <select
+                        id="customsYear"
+                        class="year-select w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none ring-brand-300 focus:ring"
+                      >
+                        <option value="">Annee</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                    <div>
+                      <label
+                        for="kilometrage"
+                        class="mb-1 block text-sm font-semibold"
+                        >Kilometrage (Km)</label
+                      >
+                      <input
+                        id="kilometrage"
+                        type="number"
+                        min="0"
+                        class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none ring-brand-300 focus:ring"
+                        placeholder="500000"
+                      />
+                    </div>
+                    <div>
+                      <label
+                        for="hours"
+                        class="mb-1 block text-sm font-semibold"
+                        >Heures de fonctionnement (H)</label
+                      >
+                      <input
+                        id="hours"
+                        type="number"
+                        min="0"
+                        class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none ring-brand-300 focus:ring"
+                        placeholder="8500"
+                      />
+                    </div>
+                    <div>
+                      <label
+                        for="condition"
+                        class="mb-1 block text-sm font-semibold"
+                        >Etat</label
+                      >
+                      <select
+                        id="condition"
+                        required
+                        class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none ring-brand-300 focus:ring"
+                      >
+                        <option value="">Select Etat</option>
+                        <option>Vehicule occasion</option>
+                        <option>Vehicule accidente</option>
+                        <option>Vehicule neuf</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <article
+                class="overflow-hidden rounded-xl border border-slate-200 bg-white"
+              >
+                <button
+                  type="button"
+                  class="accordion-btn flex w-full items-center justify-between px-4 py-3 text-left"
+                  data-acc-target="acc-energy"
+                >
+                  <span class="font-bold">Energie et environnement</span>
+                  <span class="acc-icon text-lg">+</span>
+                </button>
+                <div
+                  id="acc-energy"
+                  class="accordion-panel hidden border-t border-slate-200 px-4 py-4"
+                >
+                  <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                    <div>
+                      <label
+                        for="power"
+                        class="mb-1 block text-sm font-semibold"
+                        >Puissance (CV)</label
+                      >
+                      <input
+                        id="power"
+                        type="number"
+                        min="0"
+                        class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none ring-brand-300 focus:ring"
+                      />
+                    </div>
+                    <div>
+                      <label
+                        for="weight"
+                        class="mb-1 block text-sm font-semibold"
+                        >Poids</label
+                      >
+                      <input
+                        id="weight"
+                        type="text"
+                        placeholder="ex: 18 t"
+                        class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none ring-brand-300 focus:ring"
+                      />
+                    </div>
+                    <div>
+                      <label for="fuel" class="mb-1 block text-sm font-semibold"
+                        >Type de carburant</label
+                      >
+                      <select
+                        id="fuel"
+                        class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none ring-brand-300 focus:ring"
+                      >
+                        <option value="">Select Type de carburant</option>
+                        <option>Diesel</option>
+                        <option>Essence</option>
+                        <option>Gaz</option>
+                        <option>Electrique</option>
+                        <option>Hybride</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label
+                        for="tyres"
+                        class="mb-1 block text-sm font-semibold"
+                        >Etat des pneus</label
+                      >
+                      <select
+                        id="tyres"
+                        class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none ring-brand-300 focus:ring"
+                      >
+                        <option value="">Select Etat des pneus</option>
+                        <option>+75%</option>
+                        <option>75%</option>
+                        <option>50%</option>
+                        <option>25%</option>
+                        <option>-25%</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                    <div>
+                      <label
+                        for="undercarriage"
+                        class="mb-1 block text-sm font-semibold"
+                        >Etat du train de roulement</label
+                      >
+                      <select
+                        id="undercarriage"
+                        class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none ring-brand-300 focus:ring"
+                      >
+                        <option value="">Selectionner</option>
+                        <option>bon</option>
+                        <option>a revoir</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label
+                        for="chainState"
+                        class="mb-1 block text-sm font-semibold"
+                        >Etat de la chaine</label
+                      >
+                      <select
+                        id="chainState"
+                        class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none ring-brand-300 focus:ring"
+                      >
+                        <option value="">Selectionner</option>
+                        <option>bon</option>
+                        <option>a revoir</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label
+                        for="tracks"
+                        class="mb-1 block text-sm font-semibold"
+                        >Chenilles</label
+                      >
+                      <select
+                        id="tracks"
+                        class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none ring-brand-300 focus:ring"
+                      >
+                        <option value="">Selectionner</option>
+                        <option>acier</option>
+                        <option>caoutchouc</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label
+                        for="bucketVolume"
+                        class="mb-1 block text-sm font-semibold"
+                        >Volume de la pelle (m3)</label
+                      >
+                      <input
+                        id="bucketVolume"
+                        type="number"
+                        step="0.1"
+                        min="0"
+                        class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none ring-brand-300 focus:ring"
+                      />
+                    </div>
+                    <div>
+                      <label
+                        for="bucketWidth"
+                        class="mb-1 block text-sm font-semibold"
+                        >Godet de terrassement (cm)</label
+                      >
+                      <input
+                        id="bucketWidth"
+                        type="number"
+                        min="0"
+                        class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none ring-brand-300 focus:ring"
+                      />
+                    </div>
+                    <div>
+                      <label
+                        for="liftingPower"
+                        class="mb-1 block text-sm font-semibold"
+                        >Puissance de levage (Kg/m)</label
+                      >
+                      <input
+                        id="liftingPower"
+                        type="number"
+                        min="0"
+                        class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none ring-brand-300 focus:ring"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <article
+                class="overflow-hidden rounded-xl border border-slate-200 bg-white"
+              >
+                <button
+                  type="button"
+                  class="accordion-btn flex w-full items-center justify-between px-4 py-3 text-left"
+                  data-acc-target="acc-options"
+                >
+                  <span class="font-bold">Options et caracteristiques</span>
+                  <span class="acc-icon text-lg">+</span>
+                </button>
+                <div
+                  id="acc-options"
+                  class="accordion-panel hidden border-t border-slate-200 px-4 py-4"
+                >
+                  <p class="mb-2 text-sm font-semibold">Pieces / accessoires</p>
+                  <div class="grid gap-2 sm:grid-cols-2 lg:grid-cols-3 text-sm">
+                    <label class="flex items-center gap-2"
+                      ><input type="checkbox" /> Grue</label
+                    >
+                    <label class="flex items-center gap-2"
+                      ><input type="checkbox" /> Pelle standard</label
+                    >
+                    <label class="flex items-center gap-2"
+                      ><input type="checkbox" /> Fourches a palette</label
+                    >
+                    <label class="flex items-center gap-2"
+                      ><input type="checkbox" /> Dispositif de remorquage</label
+                    >
+                    <label class="flex items-center gap-2"
+                      ><input type="checkbox" /> Phares supplementaires</label
+                    >
+                  </div>
+
+                  <p class="mb-2 mt-4 text-sm font-semibold">
+                    Autres caracteristiques
+                  </p>
+                  <div class="grid gap-2 sm:grid-cols-2 lg:grid-cols-3 text-sm">
+                    <label class="flex items-center gap-2"
+                      ><input type="checkbox" /> Cabine</label
+                    >
+                    <label class="flex items-center gap-2"
+                      ><input type="checkbox" /> Console reglable</label
+                    >
+                    <label class="flex items-center gap-2"
+                      ><input type="checkbox" /> Air conditionne</label
+                    >
+                    <label class="flex items-center gap-2"
+                      ><input type="checkbox" /> Controle de tractions</label
+                    >
+                    <label class="flex items-center gap-2"
+                      ><input type="checkbox" /> Chauffage auxiliaire</label
+                    >
+                    <label class="flex items-center gap-2"
+                      ><input type="checkbox" /> Marteau hydraulique</label
+                    >
+                    <label class="flex items-center gap-2"
+                      ><input type="checkbox" /> Grappin hydraulique</label
+                    >
+                    <label class="flex items-center gap-2"
+                      ><input type="checkbox" /> Quatre roues motrices</label
+                    >
+                    <label class="flex items-center gap-2"
+                      ><input type="checkbox" /> Regles prevention
+                      accidents</label
+                    >
+                  </div>
+                </div>
+              </article>
+
+              <article
+                class="overflow-hidden rounded-xl border border-slate-200 bg-white"
+              >
+                <button
+                  type="button"
+                  class="accordion-btn flex w-full items-center justify-between px-4 py-3 text-left"
+                  data-acc-target="acc-media"
+                >
+                  <span class="font-bold">Images et description</span>
+                  <span class="acc-icon text-lg">+</span>
+                </button>
+                <div
+                  id="acc-media"
+                  class="accordion-panel hidden border-t border-slate-200 px-4 py-4"
+                >
+                  <div class="grid gap-4 sm:grid-cols-2">
+                    <div>
+                      <label
+                        for="mainImage"
+                        class="mb-1 block text-sm font-semibold"
+                        >Image principale</label
+                      >
+                      <select
+                        id="mainImage"
+                        class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none ring-brand-300 focus:ring"
+                      >
+                        <option value="hero.webp">hero.webp</option>
+                        <option value="svg/svg_00005.svg">svg_00005.svg</option>
+                        <option value="svg/svg_00010.svg">svg_00010.svg</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label
+                        for="galleryImages"
+                        class="mb-1 block text-sm font-semibold"
+                        >Ajouter une galerie d'images</label
+                      >
+                      <input
+                        id="galleryImages"
+                        type="text"
+                        placeholder="Ex: image1.jpg, image2.jpg"
+                        class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none ring-brand-300 focus:ring"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="mt-4">
+                    <label
+                      for="description"
+                      class="mb-1 block text-sm font-semibold"
+                      >Description</label
+                    >
+                    <textarea
+                      id="description"
+                      rows="5"
+                      placeholder="Description detaillee du materiel"
+                      required
+                      class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none ring-brand-300 focus:ring"
+                    ></textarea>
+                  </div>
+
+                  <div
+                    class="mt-4 rounded-xl border border-dashed border-slate-300 bg-slate-50 p-3 text-sm text-slate-600"
+                  >
+                    Version demo: connectez plus tard un vrai upload media et
+                    backend.
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <div class="flex flex-wrap gap-3">
+              <button
+                id="backToStep2"
+                type="button"
+                class="rounded-lg border border-slate-300 px-5 py-3 text-sm font-semibold hover:border-slate-400"
+              >
+                Retour
+              </button>
+              <button
+                type="submit"
+                class="rounded-lg bg-brand-400 px-5 py-3 text-sm font-bold text-black hover:bg-brand-300"
+              >
+                Publier l'annonce
+              </button>
+            </div>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <script>
+      const createProductForm = document.getElementById("createProductForm");
+      const categoryInput = document.getElementById("category");
+      const subcategoryInput = document.getElementById("subcategory");
+      const categoryCards = document.querySelectorAll(".category-card");
+      const subcategoryGrid = document.getElementById("subcategoryGrid");
+
+      const step1 = document.getElementById("step1");
+      const step2 = document.getElementById("step2");
+      const step3 = document.getElementById("step3");
+
+      const stepBadge1 = document.getElementById("stepBadge1");
+      const stepBadge2 = document.getElementById("stepBadge2");
+      const stepBadge3 = document.getElementById("stepBadge3");
+
+      const toStep2 = document.getElementById("toStep2");
+      const toStep3 = document.getElementById("toStep3");
+      const backToStep1 = document.getElementById("backToStep1");
+      const backToStep2 = document.getElementById("backToStep2");
+      const selectedCategoryLabel = document.getElementById(
+        "selectedCategoryLabel",
+      );
+      const selectedSubcategoryLabel = document.getElementById(
+        "selectedSubcategoryLabel",
+      );
+
+      const accordionButtons = document.querySelectorAll(".accordion-btn");
+      const yearSelects = document.querySelectorAll(".year-select");
+      const saleFields = document.getElementById("saleFields");
+      const rentalFields = document.getElementById("rentalFields");
+      const transactionTypeRadios = document.querySelectorAll(
+        'input[name="transactionType"]',
+      );
+
+      const subcategoriesByCategory = {
+        "Materiels TP": [
+          { name: "Pelle", image: "svg/svg_00002.svg" },
+          { name: "Tractopelle", image: "svg/svg_00003.svg" },
+          { name: "Chargeuse", image: "svg/svg_00004.svg" },
+          { name: "Bulldozer", image: "svg/svg_00005.svg" },
+        ],
+        Manutention: [
+          { name: "Chariot elevateur", image: "svg/svg_00006.svg" },
+          { name: "Chariot telescopique", image: "svg/svg_00007.svg" },
+          { name: "Gerbeur", image: "svg/svg_00008.svg" },
+          { name: "Nacelle", image: "svg/svg_00009.svg" },
+        ],
+        "Poids Lourds": [
+          { name: "Tracteur routier", image: "svg/svg_00010.svg" },
+          { name: "Camion", image: "svg/svg_00011.svg" },
+          { name: "Ensemble routier", image: "svg/svg_00012.svg" },
+          { name: "Semi remorque", image: "svg/svg_00013.svg" },
+        ],
+        Agricole: [
+          { name: "Tracteur agricole", image: "svg/svg_00014.svg" },
+          { name: "Moissonneuse", image: "svg/svg_00015.svg" },
+          { name: "Outils du sol", image: "svg/svg_00016.svg" },
+          { name: "Fenaison", image: "svg/svg_00017.svg" },
+        ],
+      };
+
+      function setSelectedCard(cards, selectedValue, datasetKey) {
+        cards.forEach((card) => {
+          const isSelected = card.dataset[datasetKey] === selectedValue;
+          card.classList.toggle("border-brand-500", isSelected);
+          card.classList.toggle("bg-brand-50", isSelected);
+          card.classList.toggle("ring-2", isSelected);
+          card.classList.toggle("ring-brand-200", isSelected);
+          card.classList.toggle("border-slate-300", !isSelected);
+          card.setAttribute("aria-pressed", isSelected ? "true" : "false");
+        });
+      }
+
+      function setActiveBadge(activeBadge) {
+        [stepBadge1, stepBadge2, stepBadge3].forEach((badge) => {
+          const isActive = badge === activeBadge;
+          badge.classList.toggle("border-brand-500", isActive);
+          badge.classList.toggle("bg-brand-50", isActive);
+          badge.classList.toggle("font-bold", isActive);
+          badge.classList.toggle("text-brand-800", isActive);
+          badge.classList.toggle("border-slate-300", !isActive);
+          badge.classList.toggle("bg-white", !isActive);
+          badge.classList.toggle("font-semibold", !isActive);
+          badge.classList.toggle("text-slate-500", !isActive);
+        });
+      }
+
+      function showStep(stepNumber) {
+        step1.classList.toggle("hidden", stepNumber !== 1);
+        step2.classList.toggle("hidden", stepNumber !== 2);
+        step3.classList.toggle("hidden", stepNumber !== 3);
+
+        if (stepNumber === 1) {
+          setActiveBadge(stepBadge1);
+        }
+        if (stepNumber === 2) {
+          setActiveBadge(stepBadge2);
+        }
+        if (stepNumber === 3) {
+          setActiveBadge(stepBadge3);
+          selectedCategoryLabel.textContent = categoryInput.value || "-";
+          selectedSubcategoryLabel.textContent = subcategoryInput.value || "-";
+        }
+      }
+
+      function initAccordions() {
+        accordionButtons.forEach((button, index) => {
+          const targetId = button.dataset.accTarget;
+          const panel = document.getElementById(targetId);
+          const icon = button.querySelector(".acc-icon");
+          if (index === 0) {
+            panel.classList.remove("hidden");
+            icon.textContent = "-";
+          }
+
+          button.addEventListener("click", () => {
+            const isHidden = panel.classList.contains("hidden");
+            panel.classList.toggle("hidden", !isHidden);
+            icon.textContent = isHidden ? "-" : "+";
+          });
+        });
+      }
+
+      function fillYearOptions() {
+        const currentYear = new Date().getFullYear();
+        yearSelects.forEach((select) => {
+          for (let year = currentYear; year >= 1900; year -= 1) {
+            const option = document.createElement("option");
+            option.value = String(year);
+            option.textContent = String(year);
+            select.appendChild(option);
+          }
+        });
+      }
+
+      function toggleTransactionFields() {
+        const selectedType = document.querySelector(
+          'input[name="transactionType"]:checked',
+        )?.value;
+        const isSale = selectedType === "vente";
+        saleFields.classList.toggle("hidden", !isSale);
+        rentalFields.classList.toggle("hidden", isSale);
+      }
+
+      function updateSubcategories() {
+        const selectedCategory = categoryInput.value;
+        const items = subcategoriesByCategory[selectedCategory] || [];
+
+        subcategoryInput.value = "";
+        subcategoryGrid.innerHTML = "";
+
+        if (items.length === 0) {
+          const empty = document.createElement("p");
+          empty.className = "text-sm text-slate-500";
+          empty.textContent = "Aucune sous categorie disponible.";
+          subcategoryGrid.appendChild(empty);
+          return;
+        }
+
+        items.forEach((item) => {
+          const button = document.createElement("button");
+          button.type = "button";
+          button.className =
+            "subcategory-card rounded-xl border border-slate-300 bg-white p-3 text-left transition hover:-translate-y-0.5 hover:border-brand-500";
+          button.dataset.subcategory = item.name;
+          button.innerHTML = `
+            <img src="${item.image}" alt="${item.name}" class="h-16 w-full rounded bg-slate-50 object-contain p-2" />
+            <p class="mt-2 text-sm font-bold">${item.name}</p>
+          `;
+          button.addEventListener("click", () => {
+            subcategoryInput.value = item.name;
+            const subcategoryCards =
+              document.querySelectorAll(".subcategory-card");
+            setSelectedCard(subcategoryCards, item.name, "subcategory");
+          });
+          subcategoryGrid.appendChild(button);
+        });
+      }
+
+      categoryCards.forEach((card) => {
+        card.addEventListener("click", () => {
+          categoryInput.value = card.dataset.category;
+          subcategoryInput.value = "";
+          setSelectedCard(categoryCards, card.dataset.category, "category");
+          updateSubcategories();
+        });
+      });
+
+      toStep2.addEventListener("click", () => {
+        if (!categoryInput.value) {
+          categoryInput.reportValidity();
+          return;
+        }
+        showStep(2);
+      });
+
+      backToStep1.addEventListener("click", () => showStep(1));
+
+      toStep3.addEventListener("click", () => {
+        if (!subcategoryInput.value) {
+          subcategoryInput.reportValidity();
+          return;
+        }
+        showStep(3);
+      });
+
+      backToStep2.addEventListener("click", () => showStep(2));
+
+      transactionTypeRadios.forEach((radio) => {
+        radio.addEventListener("change", toggleTransactionFields);
+      });
+
+      initAccordions();
+      fillYearOptions();
+      toggleTransactionFields();
+
+      createProductForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        window.location.href = "dashboard-client.html";
+      });
+    </script>
+  </body>
+</html>

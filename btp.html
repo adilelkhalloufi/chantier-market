@@ -1,0 +1,664 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BTP360 Style Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                50: "#fff8e6",
+                100: "#fceec4",
+                200: "#f7dc87",
+                300: "#f2ca4b",
+                400: "#e8b21c",
+                500: "#c9930a",
+                600: "#a37809",
+                700: "#7a5a08",
+                800: "#533e06",
+                900: "#322503",
+              },
+            },
+            boxShadow: {
+              soft: "0 10px 30px rgba(0,0,0,0.12)",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background:
+          radial-gradient(
+            1000px 450px at 10% -15%,
+            #f6e3a2 0%,
+            transparent 60%
+          ),
+          radial-gradient(900px 450px at 90% -25%, #d9e6ee 0%, transparent 60%),
+          #f8fafc;
+      }
+      .glass {
+        backdrop-filter: blur(8px);
+        background: rgba(255, 255, 255, 0.9);
+      }
+      .fade-up {
+        opacity: 0;
+        transform: translateY(14px);
+        transition:
+          opacity 0.5s ease,
+          transform 0.5s ease;
+      }
+      .fade-up.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body class="text-slate-900">
+    <header class="sticky top-0 z-40 border-b border-slate-200/60 glass">
+      <div
+        class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8"
+      >
+        <a
+          href="#"
+          class="flex items-center gap-2 text-xl font-extrabold tracking-tight"
+        >
+          <span
+            class="inline-flex h-8 w-8 items-center justify-center rounded bg-brand-400 text-black"
+            >B</span
+          >
+          <span>BTP360</span>
+        </a>
+
+        <nav class="hidden gap-6 text-sm font-medium md:flex">
+          <a href="#home" class="hover:text-brand-600">Accueil</a>
+          <a href="#categories" class="hover:text-brand-600">Categories</a>
+          <a href="#annonces" class="hover:text-brand-600">Annonces</a>
+          <a href="#actualites" class="hover:text-brand-600">Actualites</a>
+        </nav>
+
+        <div class="hidden items-center gap-3 md:flex">
+          <a
+            href="login-register.html"
+            class="rounded-full border border-slate-300 px-4 py-2 text-sm font-medium hover:border-slate-400"
+          >
+            Connexion / Inscription
+          </a>
+          <a
+            href="depose-annonce.html"
+            class="rounded-full bg-brand-400 px-4 py-2 text-sm font-bold text-black hover:bg-brand-300"
+          >
+            Deposer une annonce
+          </a>
+        </div>
+
+        <button
+          id="menuBtn"
+          class="rounded border border-slate-300 p-2 md:hidden"
+          aria-label="Ouvrir menu"
+        >
+          ☰
+        </button>
+      </div>
+
+      <div
+        id="mobileMenu"
+        class="hidden border-t border-slate-200 bg-white md:hidden"
+      >
+        <div class="space-y-3 px-4 py-4 text-sm font-medium">
+          <a href="#home" class="block">Accueil</a>
+          <a href="#categories" class="block">Categories</a>
+          <a href="#annonces" class="block">Annonces</a>
+          <a href="#actualites" class="block">Actualites</a>
+          <a href="login-register.html" class="block"
+            >Connexion / Inscription</a
+          >
+          <a href="dashboard-client.html" class="block">Mon profil</a>
+          <a href="depose-annonce.html" class="block">Deposer une annonce</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section
+        id="home"
+        class="mx-auto grid max-w-7xl gap-10 px-4 pb-10 pt-10 sm:px-6 md:grid-cols-2 lg:px-8 lg:pt-16"
+      >
+        <div class="fade-up">
+          <p
+            class="mb-4 inline-flex items-center rounded-full bg-brand-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-brand-700"
+          >
+            Marche BTP Maroc
+          </p>
+          <h1 class="text-3xl font-black leading-tight sm:text-4xl lg:text-5xl">
+            Portail de vente de
+            <span class="text-brand-600">vehicules industriels</span>
+            d'occasion
+          </h1>
+          <p class="mt-4 max-w-xl text-slate-600">
+            Maquette homepage inspiree de btp360: categories claires, annonces
+            recentes et section actualites. Concue en Tailwind avec un style
+            propre, responsive et simple.
+          </p>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a
+              href="bulldozer.html"
+              class="rounded-full bg-brand-400 px-5 py-3 font-bold text-black shadow-soft hover:bg-brand-300"
+            >
+              Voir les annonces
+            </a>
+            <a
+              href="annonce-daf-xf460.html"
+              class="rounded-full border border-brand-500 bg-brand-50 px-5 py-3 font-semibold text-brand-800 hover:bg-brand-100"
+            >
+              Voir annonce DAF XF460
+            </a>
+            <button
+              class="rounded-full border border-slate-300 bg-white px-5 py-3 font-semibold hover:border-slate-500"
+            >
+              Explorer categories
+            </button>
+          </div>
+        </div>
+
+        <div
+          class="fade-up rounded-2xl bg-slate-900 p-5 text-white shadow-soft"
+        >
+          <img
+            src="./hero.webp"
+            alt="Camions industriels"
+            class="h-64 w-full rounded-xl object-cover sm:h-72"
+          />
+          <div class="mt-4 grid grid-cols-2 gap-3 text-sm">
+            <div class="rounded-lg bg-white/10 p-3">
+              <p class="text-slate-300">Annonces actives</p>
+              <p class="text-2xl font-extrabold">2,450+</p>
+            </div>
+            <div class="rounded-lg bg-white/10 p-3">
+              <p class="text-slate-300">Vendeurs verifies</p>
+              <p class="text-2xl font-extrabold">980+</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="categories"
+        class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8"
+      >
+        <div class="mb-6 flex items-end justify-between gap-4">
+          <div>
+            <h2 class="text-2xl font-extrabold">Categories principales</h2>
+            <p class="text-sm text-slate-600">
+              Structure similaire a la home de reference
+            </p>
+          </div>
+        </div>
+
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <article
+            class="fade-up rounded-xl border border-slate-200 bg-white p-4 shadow-soft"
+          >
+            <h3 class="mb-3 text-lg font-bold">Materiels TP</h3>
+            <ul class="space-y-2 text-sm text-slate-600">
+              <li>
+                <a
+                  href="#"
+                  class="flex items-center gap-2 hover:text-brand-700"
+                >
+                  <img
+                    src="svg/svg_00002.svg"
+                    alt="Pelle"
+                    class="h-7 w-10 rounded object-contain"
+                  />
+                  <span>Pelle</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="flex items-center gap-2 hover:text-brand-700"
+                >
+                  <img
+                    src="svg/svg_00003.svg"
+                    alt="Tractopelle"
+                    class="h-7 w-10 rounded object-contain"
+                  />
+                  <span>Tractopelle</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="flex items-center gap-2 hover:text-brand-700"
+                >
+                  <img
+                    src="svg/svg_00004.svg"
+                    alt="Chargeuse"
+                    class="h-7 w-10 rounded object-contain"
+                  />
+                  <span>Chargeuse</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="bulldozer.html"
+                  class="flex items-center gap-2 font-semibold text-brand-700 hover:underline"
+                  ><img
+                    src="svg/svg_00005.svg"
+                    alt="Bulldozer"
+                    class="h-7 w-10 rounded object-contain"
+                  /><span>Bulldozer</span></a
+                >
+              </li>
+            </ul>
+          </article>
+          <article
+            class="fade-up rounded-xl border border-slate-200 bg-white p-4 shadow-soft"
+          >
+            <h3 class="mb-3 text-lg font-bold">Manutention</h3>
+            <ul class="space-y-2 text-sm text-slate-600">
+              <li>
+                <a
+                  href="#"
+                  class="flex items-center gap-2 hover:text-brand-700"
+                >
+                  <img
+                    src="svg/svg_00006.svg"
+                    alt="Chariot elevateur"
+                    class="h-7 w-10 rounded object-contain"
+                  />
+                  <span>Chariot elevateur</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="flex items-center gap-2 hover:text-brand-700"
+                >
+                  <img
+                    src="svg/svg_00007.svg"
+                    alt="Chariot telescopique"
+                    class="h-7 w-10 rounded object-contain"
+                  />
+                  <span>Chariot telescopique</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="flex items-center gap-2 hover:text-brand-700"
+                >
+                  <img
+                    src="svg/svg_00008.svg"
+                    alt="Gerbeur"
+                    class="h-7 w-10 rounded object-contain"
+                  />
+                  <span>Gerbeur</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="flex items-center gap-2 hover:text-brand-700"
+                >
+                  <img
+                    src="svg/svg_00009.svg"
+                    alt="Nacelle"
+                    class="h-7 w-10 rounded object-contain"
+                  />
+                  <span>Nacelle</span>
+                </a>
+              </li>
+            </ul>
+          </article>
+          <article
+            class="fade-up rounded-xl border border-slate-200 bg-white p-4 shadow-soft"
+          >
+            <h3 class="mb-3 text-lg font-bold">Poids Lourds</h3>
+            <ul class="space-y-2 text-sm text-slate-600">
+              <li>
+                <a
+                  href="#"
+                  class="flex items-center gap-2 hover:text-brand-700"
+                >
+                  <img
+                    src="svg/svg_00010.svg"
+                    alt="Tracteur"
+                    class="h-7 w-10 rounded object-contain"
+                  />
+                  <span>Tracteur</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="flex items-center gap-2 hover:text-brand-700"
+                >
+                  <img
+                    src="svg/svg_00011.svg"
+                    alt="Camion"
+                    class="h-7 w-10 rounded object-contain"
+                  />
+                  <span>Camion</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="flex items-center gap-2 hover:text-brand-700"
+                >
+                  <img
+                    src="svg/svg_00012.svg"
+                    alt="Ensemble routier"
+                    class="h-7 w-10 rounded object-contain"
+                  />
+                  <span>Ensemble routier</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="flex items-center gap-2 hover:text-brand-700"
+                >
+                  <img
+                    src="svg/svg_00013.svg"
+                    alt="Semi remorque"
+                    class="h-7 w-10 rounded object-contain"
+                  />
+                  <span>Semi remorque</span>
+                </a>
+              </li>
+            </ul>
+          </article>
+          <article
+            class="fade-up rounded-xl border border-slate-200 bg-white p-4 shadow-soft"
+          >
+            <h3 class="mb-3 text-lg font-bold">Agricole</h3>
+            <ul class="space-y-2 text-sm text-slate-600">
+              <li>
+                <a
+                  href="#"
+                  class="flex items-center gap-2 hover:text-brand-700"
+                >
+                  <img
+                    src="svg/svg_00014.svg"
+                    alt="Tracteur agricole"
+                    class="h-7 w-10 rounded object-contain"
+                  />
+                  <span>Tracteur agricole</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="flex items-center gap-2 hover:text-brand-700"
+                >
+                  <img
+                    src="svg/svg_00015.svg"
+                    alt="Moisson"
+                    class="h-7 w-10 rounded object-contain"
+                  />
+                  <span>Moisson</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="flex items-center gap-2 hover:text-brand-700"
+                >
+                  <img
+                    src="svg/svg_00016.svg"
+                    alt="Outils du sol"
+                    class="h-7 w-10 rounded object-contain"
+                  />
+                  <span>Outils du sol</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="flex items-center gap-2 hover:text-brand-700"
+                >
+                  <img
+                    src="svg/svg_00017.svg"
+                    alt="Fenaison"
+                    class="h-7 w-10 rounded object-contain"
+                  />
+                  <span>Fenaison</span>
+                </a>
+              </li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section
+        id="annonces"
+        class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8"
+      >
+        <div class="mb-5 flex flex-wrap items-center justify-between gap-3">
+          <h2 class="text-2xl font-extrabold">Dernieres annonces</h2>
+          <div class="flex flex-wrap gap-2 text-sm">
+            <button
+              class="cat-filter rounded-full border border-slate-300 px-3 py-1 font-semibold"
+              data-cat="all"
+            >
+              Tout
+            </button>
+            <button
+              class="cat-filter rounded-full border border-slate-300 px-3 py-1"
+              data-cat="poids"
+            >
+              Poids lourds
+            </button>
+            <button
+              class="cat-filter rounded-full border border-slate-300 px-3 py-1"
+              data-cat="tp"
+            >
+              TP
+            </button>
+            <button
+              class="cat-filter rounded-full border border-slate-300 px-3 py-1"
+              data-cat="manutention"
+            >
+              Manutention
+            </button>
+          </div>
+        </div>
+
+        <div id="cards" class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <article
+            class="listing fade-up rounded-xl border border-slate-200 bg-white p-3 shadow-soft"
+            data-cat="poids"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=900&q=80"
+              alt="Tracteur routier"
+              class="h-44 w-full rounded-lg object-cover"
+            />
+            <h3 class="mt-3 font-bold">Tracteur routier Iveco 2018</h3>
+            <p class="text-brand-600 font-extrabold">480.000 MAD</p>
+          </article>
+          <article
+            class="listing fade-up rounded-xl border border-slate-200 bg-white p-3 shadow-soft"
+            data-cat="tp"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1599707254554-027aeb4deacd?auto=format&fit=crop&w=900&q=80"
+              alt="Tractopelle"
+              class="h-44 w-full rounded-lg object-cover"
+            />
+            <h3 class="mt-3 font-bold">Tractopelle JCB 3CX 1999</h3>
+            <p class="text-brand-600 font-extrabold">190.000 MAD</p>
+          </article>
+          <article
+            class="listing fade-up rounded-xl border border-slate-200 bg-white p-3 shadow-soft"
+            data-cat="manutention"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=900&q=80"
+              alt="Chariot telescopique"
+              class="h-44 w-full rounded-lg object-cover"
+            />
+            <h3 class="mt-3 font-bold">Chariot telescopique JCB 2006</h3>
+            <p class="text-brand-600 font-extrabold">460.000 MAD</p>
+          </article>
+        </div>
+      </section>
+
+      <section
+        id="actualites"
+        class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8"
+      >
+        <h2 class="mb-5 text-2xl font-extrabold">Actualites</h2>
+        <div class="grid gap-4 md:grid-cols-3">
+          <article
+            class="fade-up rounded-xl border border-slate-200 bg-white p-4 shadow-soft"
+          >
+            <img
+              src="./hero.webp"
+              alt="Actualite Tombereau"
+              class="h-44 w-full rounded-lg object-cover"
+            />
+            <h3 class="text-lg font-bold">Tombereau</h3>
+            <p class="mt-2 text-sm text-slate-600">
+              Un engin de carrieres et grands chantiers. Resume court avec lien
+              vers detail.
+            </p>
+            <a
+              href="#"
+              class="mt-3 inline-block text-sm font-semibold text-brand-700"
+              >Lire la suite</a
+            >
+          </article>
+          <article
+            class="fade-up rounded-xl border border-slate-200 bg-white p-4 shadow-soft"
+          >
+            <img
+              src="./hero.webp"
+              alt="Actualite Tombereau"
+              class="h-44 w-full rounded-lg object-cover"
+            />
+            <h3 class="text-lg font-bold">Tombereau</h3>
+            <p class="mt-2 text-sm text-slate-600">
+              Un engin de carrieres et grands chantiers. Resume court avec lien
+              vers detail.
+            </p>
+            <a
+              href="#"
+              class="mt-3 inline-block text-sm font-semibold text-brand-700"
+              >Lire la suite</a
+            >
+          </article>
+
+          <article
+            class="fade-up rounded-xl border border-slate-200 bg-white p-4 shadow-soft"
+          >
+            <img
+              src="./hero.webp"
+              alt="Actualite Grue mobile"
+              class="h-44 w-full rounded-lg object-cover"
+            />
+            <h3 class="text-lg font-bold">Grue mobile</h3>
+            <p class="mt-2 text-sm text-slate-600">
+              Equipement de levage imposant. Resume article format blog
+              industriel.
+            </p>
+            <a
+              href="#"
+              class="mt-3 inline-block text-sm font-semibold text-brand-700"
+              >Lire la suite</a
+            >
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="mt-10 border-t border-slate-200 bg-slate-950 text-slate-200">
+      <div
+        class="mx-auto grid max-w-7xl gap-8 px-4 py-10 sm:px-6 md:grid-cols-3 lg:px-8"
+      >
+        <div>
+          <h3 class="text-lg font-bold text-white">A propos</h3>
+          <p class="mt-2 text-sm text-slate-400">
+            Marketplace specialisee en vehicules industriels et materiels
+            d'occasion.
+          </p>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold text-white">Contact</h3>
+          <p class="mt-2 text-sm text-slate-400">(+212) 6565 2265</p>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold text-white">Suivez-nous</h3>
+          <p class="mt-2 text-sm text-slate-400">
+            Facebook, Instagram, Youtube, LinkedIn
+          </p>
+        </div>
+      </div>
+      <div
+        class="border-t border-slate-800 py-3 text-center text-xs text-slate-500"
+      >
+        BTP360 style demo - 2026
+      </div>
+    </footer>
+
+    <script>
+      const menuBtn = document.getElementById("menuBtn");
+      const mobileMenu = document.getElementById("mobileMenu");
+      menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      const buttons = document.querySelectorAll(".cat-filter");
+      const listings = document.querySelectorAll(".listing");
+      buttons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          buttons.forEach((b) =>
+            b.classList.remove(
+              "bg-brand-400",
+              "font-bold",
+              "text-black",
+              "border-brand-500",
+            ),
+          );
+          btn.classList.add(
+            "bg-brand-400",
+            "font-bold",
+            "text-black",
+            "border-brand-500",
+          );
+          const cat = btn.dataset.cat;
+          listings.forEach((item) => {
+            item.classList.toggle(
+              "hidden",
+              !(cat === "all" || item.dataset.cat === cat),
+            );
+          });
+        });
+      });
+      buttons[0].click();
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("show");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.15 },
+      );
+      document
+        .querySelectorAll(".fade-up")
+        .forEach((el) => observer.observe(el));
+    </script>
+  </body>
+</html>
