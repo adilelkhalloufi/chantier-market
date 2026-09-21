@@ -57,7 +57,8 @@ $display_name = $current_user && $current_user->exists() ? $current_user->displa
                             <h3><?php the_title(); ?></h3>
                             <p class="price"><?php echo esc_html(get_post_meta(get_the_ID(), 'price_label', true) ?: (get_post_meta(get_the_ID(), 'price_mad', true) ? number_format_i18n((int) get_post_meta(get_the_ID(), 'price_mad', true)) . ' MAD' : 'Prix sur demande')); ?></p>
                         </article>
-                    <?php endwhile; wp_reset_postdata(); ?>
+                    <?php endwhile;
+                    wp_reset_postdata(); ?>
                 <?php else : ?>
                     <p>Aucune annonce pour cet utilisateur.</p>
                 <?php endif; ?>

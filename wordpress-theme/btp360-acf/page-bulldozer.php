@@ -88,7 +88,8 @@ $bulldozer_query = new WP_Query(array(
                         <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
                         <p class="price"><?php echo $price > 0 ? esc_html(number_format_i18n($price) . ' MAD') : esc_html($price_label); ?></p>
                     </article>
-                <?php endwhile; wp_reset_postdata(); ?>
+                <?php endwhile;
+                wp_reset_postdata(); ?>
             <?php endif; ?>
         </div>
     </section>

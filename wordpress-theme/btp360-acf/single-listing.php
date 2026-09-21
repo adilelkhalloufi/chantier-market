@@ -28,7 +28,7 @@ if (have_posts()) :
             'posts_per_page' => 3,
             'post__not_in' => array($post_id),
         ));
-        ?>
+?>
         <section class="container section">
             <p class="muted-text">Accueil / Annonces / <?php the_title(); ?></p>
             <h1><?php the_title(); ?></h1>
@@ -65,11 +65,21 @@ if (have_posts()) :
                         ?>
                     </p>
                     <div class="grid cols-2 gap-sm detail-grid">
-                        <div><p>Constructeur</p><strong><?php echo esc_html($brand ?: '-'); ?></strong></div>
-                        <div><p>Modele</p><strong><?php echo esc_html($model ?: '-'); ?></strong></div>
-                        <div><p>Annee</p><strong><?php echo esc_html($year_built ?: '-'); ?></strong></div>
-                        <div><p>Dedouanement</p><strong><?php echo esc_html($customs_year ?: '-'); ?></strong></div>
-                        <div><p>Kilometrage</p><strong><?php echo esc_html($mileage ? number_format_i18n((int) $mileage) . ' km' : '-'); ?></strong></div>
+                        <div>
+                            <p>Constructeur</p><strong><?php echo esc_html($brand ?: '-'); ?></strong>
+                        </div>
+                        <div>
+                            <p>Modele</p><strong><?php echo esc_html($model ?: '-'); ?></strong>
+                        </div>
+                        <div>
+                            <p>Annee</p><strong><?php echo esc_html($year_built ?: '-'); ?></strong>
+                        </div>
+                        <div>
+                            <p>Dedouanement</p><strong><?php echo esc_html($customs_year ?: '-'); ?></strong>
+                        </div>
+                        <div>
+                            <p>Kilometrage</p><strong><?php echo esc_html($mileage ? number_format_i18n((int) $mileage) . ' km' : '-'); ?></strong>
+                        </div>
                     </div>
                     <div class="row wrap gap-sm top-space">
                         <?php if ($phone) : ?>
@@ -97,11 +107,12 @@ if (have_posts()) :
                             <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
                             <p class="price"><?php echo esc_html(get_post_meta(get_the_ID(), 'price_label', true) ?: (get_post_meta(get_the_ID(), 'price_mad', true) ? number_format_i18n((int) get_post_meta(get_the_ID(), 'price_mad', true)) . ' MAD' : 'Prix sur demande')); ?></p>
                         </article>
-                    <?php endwhile; wp_reset_postdata(); ?>
+                    <?php endwhile;
+                    wp_reset_postdata(); ?>
                 </div>
             </section>
         <?php endif; ?>
-        <?php
+<?php
     endwhile;
 endif;
 
